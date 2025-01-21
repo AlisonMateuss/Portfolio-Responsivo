@@ -61,3 +61,19 @@ const debounce = function(func, wait, immediate) {
       animeScroll();
     }, 5));
   }
+
+// Ativar carregamento do botão do formulario
+
+const btnEnviar = document.querySelector('#btn-enviar')
+const btnEnviarLoader = document.querySelector('#btn-enviar-loader')
+
+btnEnviar.addEventListener("click", ()=>{
+    btnEnviarLoader.style.display = "block";
+    btnEnviar.style.display = "none"
+})
+
+// Remover mensagem do alerta
+
+setTimeout(()=>{
+    document.querySelector('#alerta').style.display = 'none';
+}, 5000)

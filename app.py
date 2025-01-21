@@ -20,8 +20,8 @@ mail = Mail(app)
 
 class Contato:
     def __init__(self, nome, email, mensagem):
-        self.nome = nome,
-        self.email = email,
+        self.nome = nome
+        self.email = email
         self.mensagem = mensagem
         
 
@@ -51,7 +51,7 @@ def send():
             '''
         )
         mail.send(msg)
-        flash('Mensagem enviada com sucesso!')
+        flash(' Mensagem enviada com sucesso!')
     return redirect('/')
 
 if __name__ == '__main__':

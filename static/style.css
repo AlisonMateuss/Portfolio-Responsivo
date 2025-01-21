@@ -206,6 +206,10 @@ i.menu-mobile{
     transform: translate3d(0, 0, 0);
 }
 
+#btn-enviar-loader{
+    display: none;
+}
+
 @media (max-width: 1024px){
 
     #header{
@@ -389,4 +393,11 @@ i.menu-mobile{
     --bs-btn-disabled-bg: transparent;
     --bs-btn-disabled-border-color: #7a4493;
     --bs-gradient: none;
+}
+
+#alerta{
+    position: fixed;
+    z-index: 10;
+    top: 30px;
+    right: 30px;
 }
