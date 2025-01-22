@@ -64,16 +64,32 @@ const debounce = function(func, wait, immediate) {
 
 // Ativar carregamento do botão do formulario
 
+const form = document.querySelector('#form');
 const btnEnviar = document.querySelector('#btn-enviar')
 const btnEnviarLoader = document.querySelector('#btn-enviar-loader')
 
-btnEnviar.addEventListener("click", ()=>{
-    btnEnviarLoader.style.display = "block";
-    btnEnviar.style.display = "none"
-})
+form.addEventListener("submit", (event) => {
+  
+  event.preventDefault();
+
+  
+  if (form.checkValidity()) {
+      
+      btnEnviarLoader.style.display = "block";
+      btnEnviar.style.display = "none";
+
+      
+      setTimeout(() => {
+          form.submit();  
+      }, 1000); 
+  } else {
+      
+      form.reportValidity(); 
+  }
+});
 
 // Remover mensagem do alerta
 
 setTimeout(()=>{
-    document.querySelector('#alerta').style.display = 'none';
+    document.querySelector('#alerta').style.display = "none";
 }, 5000)
