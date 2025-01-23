@@ -55,10 +55,10 @@ def send():
         mail.send(msg)
         flash('Mensagem enviada com sucesso!')
     return redirect(url_for('index'))
-def handler(request, *args, **kwargs):
-    from werkzeug.wrappers import Request
-    from werkzeug.serving import run_simple
 
-    # Criar a instância do Flask
-    app.debug = True
-    return app
+# Código para integração com o Netlify e Serverless WSGI
+from serverless_wsgi import handle_request
+
+def handler(event, context):
+    """Função handler que será chamada pelo Netlify"""
+    return handle_request(app, event, context)
