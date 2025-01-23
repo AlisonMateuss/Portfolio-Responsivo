@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "pip install -r requirements.txt --no-cache-dir"
+  command = "pip install --no-cache-dir -r requirements.txt"
 
 [functions]
   directory = "netlify/functions"
