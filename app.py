@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify, render_template, redirect, request, flash
+from flask import Flask, jsonify, render_template, redirect, request, flash, url_for
 from flask_mail import Mail, Message
 from config import email, senha
 from netlify.functions import handler
@@ -54,6 +54,6 @@ def send():
         )
         mail.send(msg)
         flash('Mensagem enviada com sucesso!')
-    return redirect('/')
+    return redirect(url_for('index')))
 
 handler = handler(app)
