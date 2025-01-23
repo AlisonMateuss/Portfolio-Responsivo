@@ -17,7 +17,7 @@
 
     <aside id="header">
         <section class="profile">
-            <img src="../static/image/profile.jpeg" alt="Foto Alison">
+            <img src="/image/profile.jpeg" alt="Foto Alison">
             <h1>Alison Mateus</h1>
             <div class="social-links mt-4 text-center">
                 <a href="https://github.com/AlisonMateuss" target="_blank">
@@ -107,7 +107,7 @@
 
             <div class="row mt-4">
                 <div class="col-md-4">
-                    <img class="img-fluid shadow" src="../static/image/sobre-pic.jpeg" alt="Foto de perfil"
+                    <img class="img-fluid shadow" src="/image/sobre-pic.jpeg" alt="Foto de perfil"
                         data-anime="left">
                 </div>
                 <div class="col-md-8 pt-5" data-anime="right">
@@ -348,7 +348,7 @@
                     <div class="carousel-inner">
 
                         <div class="carousel-item active">
-                            <img src="../static/image/mestre.png" class="d-flex w-100" alt="gasto mestre">
+                            <img src="/image/mestre.png" class="d-flex w-100" alt="gasto mestre">
                             <h5 class="card-title mt-4 px-5 pt-3">Gasto Mestre</h5>
                             <p class="card-text px-5 pt-3">Aplicativo desenvolvido para monitor seu gasto e auxiliar no
                                 controle
@@ -367,7 +367,7 @@
 
                         <div class="carousel-item">
 
-                            <img src="../static/image/palooza.png" class="d-flex w-100" alt="drinks palooza">
+                            <img src="/image/palooza.png" class="d-flex w-100" alt="drinks palooza">
                             <h5 class="card-title mt-4 px-5 pt-3">Drinks Palooza</h5>
                             <p class="card-text px-5 pt-3">Aplicativo desenvolvido para solicitar serviços de
                                 coquetelaria da
@@ -467,16 +467,16 @@
                 </div>
             </div>
         </section>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-        <div id="alerta" class="alert alert-success alert-dismissible fade show" role="alert">
-            <i class="bi bi-check-circle-fill"></i>{{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div id="alerta" class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="bi bi-check-circle-fill"></i>{{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
     </main>
 
     <footer id="footer">
