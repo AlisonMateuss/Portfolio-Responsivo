@@ -52,7 +52,9 @@ def send():
             flash('Mensagem enviada com sucesso!')
         except Exception as e:
             flash(f'Erro ao enviar a mensagem: {str(e)}')
-    return redirect(url_for('index'))  # Aqui você redireciona para a página inicial
+            return redirect(url_for('index'))  # Certifique-se de retornar ao índice se algo falhar
+        
+        return redirect(url_for('index'))  # Redireciona para a página principal após o envio da mensagem
 
 if __name__ == "__main__":
     app.run(debug=True)
