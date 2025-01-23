@@ -2,8 +2,6 @@ import os
 from flask import Flask, jsonify, render_template, redirect, request, flash, url_for
 from flask_mail import Mail, Message
 from config import email, senha
-from netlify.functions import handler
-
 
 # Configuração do Flask
 app = Flask(__name__)
@@ -32,26 +30,29 @@ class Contato:
 def index():
     return render_template('index.html')
 
-@app.route('/send', methods=['GET', 'POST'])
+@app.route('/send', methods=['POST'])
 def send():
     if request.method == 'POST':
-        formContato = Contato(
-            request.form["nome"],
-            request.form["email"],
-            request.form["mensagem"]
-        )
-        msg = Message(
-            subject=f'{formContato.nome} te enviou uma mensagem no portfolio',
-            sender=app.config.get("MAIL_USERNAME"),
-            recipients=['alisonn2077@gmail.com', app.config.get("MAIL_USERNAME")],
-            body=f'''
-            
-            {formContato.nome} com o e-mail {formContato.email}, te enviou a seguinte mensagem:
-            
-            {formContato.mensagem}
-            
-            '''
-        )
-        mail.send(msg)
-        flash('Mensagem enviada com sucesso!')
-    return redirect(url_for('index'))
+        try:
+            formContato = Contato(
+                request.form["nome"],
+                request.form["email"],
+                request.form["mensagem"]
+            )
+            msg = Message(
+                subject=f'{formContato.nome} te enviou uma mensagem no portfolio',
+                sender=app.config.get("MAIL_USERNAME"),
+                recipients=['alisonn2077@gmail.com', app.config.get("MAIL_USERNAME")],
+                body=f'''
+                {formContato.nome} com o e-mail {formContato.email}, te enviou a seguinte mensagem:
+                {formContato.mensagem}
+                '''
+            )
+            mail.send(msg)
+            flash('Mensagem enviada com sucesso!')
+        except Exception as e:
+            flash(f'Erro ao enviar a mensagem: {str(e)}')
+    return redirect(url_for('index'))  # Aqui você redireciona para a página inicial
+
+if __name__ == "__main__":
+    app.run(debug=True)
