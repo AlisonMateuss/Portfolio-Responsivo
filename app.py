@@ -54,6 +54,6 @@ def send():
         )
         mail.send(msg)
         flash('Mensagem enviada com sucesso!')
-    return redirect(url_for('index')))
+    return redirect(url_for('index'))
 
 handler = handler(app)
