@@ -1,10 +1,10 @@
 [build]
-  publish = "public"   # Diretório de publicação para arquivos estáticos (caso tenha)
-  command = "pip install -r requirements.txt"  # Comando para instalar as dependências
+  publish = "public"
+  command = "pip install -r requirements.txt --no-cache-dir"
 
 [functions]
-  directory = "netlify/functions"  # Diretório onde estarão as funções serverless
-  node_bundler = "esbuild"  # Para melhor otimização do build de funções (se necessário)
-
+  directory = "netlify/functions"
+  
 [env]
   PYTHON_VERSION = "3.9"
+  PATH = "/usr/pgsql-13/bin:$PATH"
