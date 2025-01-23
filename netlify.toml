@@ -1,14 +1,14 @@
 [build]
-    command = "pip install -r requirements.txt && gunicorn netlify.functions.app:app"
-    environment = { NETLIFY_PYTHON_VERSION = "3.13" }
-    publish = "static"  # Indica o diretório de funções (ou outro diretório relevante)
-    functions = "functions"
-  
+  command = "pip install -r requirements.txt"  # Remover o gunicorn
+  environment = { NETLIFY_PYTHON_VERSION = "3.13" }
+  publish = "static"  # Essa configuração pode ser mantida se for a pasta do frontend estático
+  functions = "netlify/functions"  # Certifique-se de que o diretório de funções está correto
+
 [functions]
   directory = "netlify/functions"  # Diretório onde as funções serverless estão localizadas
 
 [env]
   PYTHON_VERSION = "3.13"
   PATH = "/usr/pgsql-13/bin:$PATH"
-  FLASK_APP = "netlify/functions/app.py"
+  FLASK_APP = "netlify/functions/app.py"  # Certifique-se de que está apontando para o arquivo correto da função
   FLASK_ENV = "production"
