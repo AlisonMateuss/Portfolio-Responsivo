@@ -1,9 +1,10 @@
 [build]
   command = "pip install --no-cache-dir --only-binary :all: -r requirements.txt"
   environment = { NETLIFY_PYTHON_VERSION = "3.9" }
+  publish = "."  # Diretório raiz, se você não tiver arquivos estáticos a serem publicados
 
 [functions]
-  directory = "netlify/functions"  # Aqui você pode colocar as funções do Flask
+  directory = "netlify/functions"  # Configura onde as funções serverless estarão localizadas
 
 [env]
   PYTHON_VERSION = "3.9"
