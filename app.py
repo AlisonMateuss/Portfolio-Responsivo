@@ -56,4 +56,6 @@ def send():
         flash('Mensagem enviada com sucesso!')
     return redirect('/')
 
-# Função para rodar no Netlify
+# Função serverless para Netlify
+def handler(event, context):
+    return Response(app(event, context), mimetype="text/html")

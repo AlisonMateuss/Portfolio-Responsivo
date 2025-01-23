@@ -1,11 +1,10 @@
 [build]
-  command = "pip install --no-cache-dir --only-binary :all: -r requirements.txt && gunicorn app:app"
-  environment = { NETLIFY_PYTHON_VERSION = "3.9" }
-  publish = "/"  # Apontar para a raiz do diretório
+  command = "pip install --no-cache-dir --only-binary :all: -r requirements.txt"
+  publish = "/"
 
 [functions]
-  directory = "netlify/functions"  # Manter se você estiver usando funções serverless no Netlify
+  directory = "netlify/functions"
 
 [env]
   PYTHON_VERSION = "3.9"
-  PATH = "/usr/pgsql-13/bin:$PATH"
+
