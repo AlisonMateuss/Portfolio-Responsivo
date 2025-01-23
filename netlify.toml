@@ -1,7 +1,8 @@
 [build]
   command = "pip install --no-cache-dir --only-binary :all: -r requirements.txt"
   environment = { NETLIFY_PYTHON_VERSION = "3.9" }
-  publish = "C:\Users\aliso\OneDrive\Documentos\Projeto-Portfólio"  # Indica o diretório de funções (ou outro diretório relevante)
+ publish = "/"  # Indica o diretório de funções (ou outro diretório relevante)
+ functions = "functions"
   
 [functions]
   directory = "netlify/functions"  # Diretório onde as funções serverless estão localizadas
