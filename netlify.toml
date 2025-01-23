@@ -1,10 +1,10 @@
 [build]
-  command = "pip install --no-cache-dir --only-binary :all: -r requirements.txt"
+  command = "pip install --no-cache-dir --only-binary :all: -r requirements.txt && gunicorn app:app"
   environment = { NETLIFY_PYTHON_VERSION = "3.9" }
-  publish = "."  # Define o diretório raiz como o diretório de publicação, já que não há diretório 'public'
+  publish = "/"  # Apontar para a raiz do diretório
 
 [functions]
-  directory = "netlify/functions"  # Localização das funções serverless do Netlify
+  directory = "netlify/functions"  # Manter se você estiver usando funções serverless no Netlify
 
 [env]
   PYTHON_VERSION = "3.9"
