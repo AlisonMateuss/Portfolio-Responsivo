@@ -106,10 +106,10 @@ document.getElementById('form').addEventListener('submit', function(event) {
   .then(response => response.json())
   .then(data => {
     if (data.success) {
-      alert('Mensagem enviada com sucesso!');
+      alert(data.message);  // Mostra a mensagem de sucesso
       window.location.href = '/';  // Redireciona para a página inicial após sucesso
     } else {
-      alert('Ocorreu um erro. Tente novamente!');
+      alert(data.message);  // Mostra a mensagem de erro
     }
   })
   .catch(error => {

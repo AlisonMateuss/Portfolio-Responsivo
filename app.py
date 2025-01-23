@@ -55,10 +55,3 @@ def send():
         mail.send(msg)
         flash('Mensagem enviada com sucesso!')
     return redirect(url_for('index'))
-
-# Código para integração com o Netlify e Serverless WSGI
-from serverless_wsgi import handle_request
-
-def handler(event, context):
-    """Função handler que será chamada pelo Netlify"""
-    return handle_request(app, event, context)
