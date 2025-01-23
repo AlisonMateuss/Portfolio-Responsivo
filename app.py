@@ -1,10 +1,10 @@
 from flask import Flask, render_template, redirect, request, flash
 from flask_mail import Mail, Message
-from config import email, senha 
+from config import email, senha
 
+# Não alteramos o Flask aqui
 app = Flask(__name__)
 app.secret_key = 'alison'
-
 
 mail_settings = {
     "MAIL_SERVER": 'smtp.gmail.com',
@@ -23,8 +23,6 @@ class Contato:
         self.nome = nome
         self.email = email
         self.mensagem = mensagem
-        
-
 
 @app.route('/')
 def index():
@@ -39,10 +37,10 @@ def send():
             request.form["mensagem"]
         )
         msg = Message(
-            subject = f'{formContato.nome} te enviou uma mensagem no portfolio',
-            sender = app.config.get("MAIL_USERNAME"),
-            recipients = ['alisonn2077@gmail.com', app.config.get("MAIL_USERNAME")],
-            body = f'''
+            subject=f'{formContato.nome} te enviou uma mensagem no portfolio',
+            sender=app.config.get("MAIL_USERNAME"),
+            recipients=['alisonn2077@gmail.com', app.config.get("MAIL_USERNAME")],
+            body=f'''
             
             {formContato.nome} com o e-mail {formContato.email}, te enviou a seguinte mensagem:
             
@@ -51,8 +49,7 @@ def send():
             '''
         )
         mail.send(msg)
-        flash(' Mensagem enviada com sucesso!')
+        flash('Mensagem enviada com sucesso!')
     return redirect('/')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# Remover a linha 'app.run(debug=True)' para que o app não tente rodar localmente
