@@ -1,11 +1,16 @@
+import os
 from flask import Flask, render_template, redirect, request, flash
 from flask_mail import Mail, Message
+from werkzeug.wrappers import Response
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
+from werkzeug.serving import run_simple
 from config import email, senha
 
-# Não alteramos o Flask aqui
+# Configuração do Flask
 app = Flask(__name__)
 app.secret_key = 'alison'
 
+# Configurações do Flask-Mail
 mail_settings = {
     "MAIL_SERVER": 'smtp.gmail.com',
     "MAIL_PORT": 465,
@@ -51,3 +56,7 @@ def send():
         mail.send(msg)
         flash('Mensagem enviada com sucesso!')
     return redirect('/')
+
+# Função para rodar no Netlify
+def handler(event, context):
+    return Response(app(event, context), mimetype="text/html")
