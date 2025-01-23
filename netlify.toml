@@ -5,7 +5,7 @@
   publish = /opt/build/repo
 
 [functions]
-    directory: /opt/build/repo/netlify/functions
+    directory= /opt/build/repo/netlify/functions
 
 [env]
   PYTHON_VERSION = "3.9"
