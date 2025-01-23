@@ -1,8 +1,8 @@
 [build]
-  command: 'pip install --no-cache-dir --only-binary :all: -r requirements.txt'
-  commandOrigin: config
-  publishOrigin: config
-  publish: /opt/build/repo
+  command = 'pip install --no-cache-dir --only-binary :all: -r requirements.txt'
+  commandOrigin = config
+  publishOrigin = config
+  publish = /opt/build/repo
 
 [functions]
     directory: /opt/build/repo/netlify/functions
