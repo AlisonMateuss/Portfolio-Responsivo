@@ -5,3 +5,6 @@
 [functions]
   directory = "netlify/functions"  # Diretório onde estarão as funções serverless
   node_bundler = "esbuild"  # Para melhor otimização do build de funções (se necessário)
+
+[env]
+  PYTHON_VERSION = "3.9"
