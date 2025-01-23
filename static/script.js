@@ -93,3 +93,26 @@ form.addEventListener("submit", (event) => {
 setTimeout(()=>{
     document.querySelector('#alerta').style.display = "none";
 }, 5000)
+
+document.getElementById('form').addEventListener('submit', function(event) {
+  event.preventDefault();  // Impede o envio tradicional do formulário
+
+  const formData = new FormData(this);
+
+  fetch('/send', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      alert('Mensagem enviada com sucesso!');
+      window.location.href = '/';  // Redireciona para a página inicial após sucesso
+    } else {
+      alert('Ocorreu um erro. Tente novamente!');
+    }
+  })
+  .catch(error => {
+    alert('Erro ao enviar a mensagem. Tente novamente!');
+  });
+});
