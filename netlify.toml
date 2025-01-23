@@ -1,12 +1,12 @@
 [build]
     command = "pip install --no-cache-dir --only-binary :all: -r requirements.txt"
-    environment = { NETLIFY_PYTHON_VERSION = "3.9" }
-    publish = "static"  # Indica o diretório de funções (ou outro diretório relevante)
+    environment = { NETLIFY_PYTHON_VERSION = "3.13" }
+    publish = "templates"  # Indica o diretório de funções (ou outro diretório relevante)
     functions = "functions"
   
 [functions]
   directory = "netlify/functions"  # Diretório onde as funções serverless estão localizadas
 
 [env]
-  PYTHON_VERSION = "3.9"
+  PYTHON_VERSION = "3.13"
   PATH = "/usr/pgsql-13/bin:$PATH"

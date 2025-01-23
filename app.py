@@ -2,7 +2,8 @@ import os
 from flask import Flask, jsonify, render_template, redirect, request, flash
 from flask_mail import Mail, Message
 from config import email, senha
-from netlify_functions import handler
+from netlify.functions import handler
+
 
 # Configuração do Flask
 app = Flask(__name__)
