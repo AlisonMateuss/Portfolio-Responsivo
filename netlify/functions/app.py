@@ -1,4 +1,4 @@
-from app import app  # Importa o Flask da aplicação principal
+from app import app  # Importa a instância do Flask da aplicação principal
 from serverless_wsgi import handle_request  # Utiliza o servidor WSGI para funções serverless
 
 def handler(event, context):

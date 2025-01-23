@@ -1,8 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, request, flash
 from flask_mail import Mail, Message
-from werkzeug.wrappers import Response
-from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from config import email, senha
 
 # Configuração do Flask
@@ -55,7 +53,3 @@ def send():
         mail.send(msg)
         flash('Mensagem enviada com sucesso!')
     return redirect('/')
-
-# Função serverless para Netlify
-def handler(event, context):
-    return Response(app(event, context), mimetype="text/html")
