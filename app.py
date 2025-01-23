@@ -3,7 +3,6 @@ from flask import Flask, render_template, redirect, request, flash
 from flask_mail import Mail, Message
 from werkzeug.wrappers import Response
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
-from werkzeug.serving import run_simple
 from config import email, senha
 
 # Configuração do Flask
@@ -58,5 +57,3 @@ def send():
     return redirect('/')
 
 # Função para rodar no Netlify
-def handler(event, context):
-    return Response(app(event, context), mimetype="text/html")
