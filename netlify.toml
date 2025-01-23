@@ -1,5 +1,5 @@
 [build]
-    command = "pip install --no-cache-dir --only-binary :all: -r requirements.txt"
+    command = "pip install -r requirements.txt && gunicorn netlify.functions.app:app"
     environment = { NETLIFY_PYTHON_VERSION = "3.13" }
     publish = "static"  # Indica o diretório de funções (ou outro diretório relevante)
     functions = "functions"
@@ -10,3 +10,5 @@
 [env]
   PYTHON_VERSION = "3.13"
   PATH = "/usr/pgsql-13/bin:$PATH"
+  FLASK_APP = "netlify/functions/app.py"
+  FLASK_ENV = "production"

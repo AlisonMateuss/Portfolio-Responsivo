@@ -55,5 +55,10 @@ def send():
         mail.send(msg)
         flash('Mensagem enviada com sucesso!')
     return redirect(url_for('index'))
+def handler(request, *args, **kwargs):
+    from werkzeug.wrappers import Request
+    from werkzeug.serving import run_simple
 
-handler = handler(app)
+    # Criar a instância do Flask
+    app.debug = True
+    return app
