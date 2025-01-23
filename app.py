@@ -51,5 +51,3 @@ def send():
         mail.send(msg)
         flash('Mensagem enviada com sucesso!')
     return redirect('/')
-
-# Remover a linha 'app.run(debug=True)' para que o app não tente rodar localmente
