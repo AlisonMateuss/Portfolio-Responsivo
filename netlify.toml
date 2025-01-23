@@ -1,11 +1,10 @@
 [build]
-  publish = "public"
   command = "pip install --no-cache-dir --only-binary :all: -r requirements.txt"
   environment = { NETLIFY_PYTHON_VERSION = "3.9" }
 
 [functions]
-  directory = "netlify/functions"
-  
+  directory = "netlify/functions"  # Aqui você pode colocar as funções do Flask
+
 [env]
   PYTHON_VERSION = "3.9"
   PATH = "/usr/pgsql-13/bin:$PATH"
