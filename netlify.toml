@@ -1,10 +1,9 @@
 [build]
   command = "pip install --no-cache-dir --only-binary :all: -r requirements.txt"
-  publish = "/"
-
+  # O campo publish é removido pois não é necessário em aplicações serverless
+  
 [functions]
-  directory = "netlify/functions"
+  directory = "netlify/functions"  # Define a pasta onde as funções serverless estão localizadas
 
 [env]
   PYTHON_VERSION = "3.9"
-
