@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "pip install --no-cache-dir -r requirements.txt"
+  command = "pip install --no-cache-dir --only-binary :all: -r requirements.txt"
   environment = { NETLIFY_PYTHON_VERSION = "3.9" }
 
 [functions]
