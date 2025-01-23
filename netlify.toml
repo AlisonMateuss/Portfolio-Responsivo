@@ -1,7 +1,7 @@
 [build]
     command = "pip install --no-cache-dir --only-binary :all: -r requirements.txt"
     environment = { NETLIFY_PYTHON_VERSION = "3.13" }
-    publish = "templates"  # Indica o diretório de funções (ou outro diretório relevante)
+    publish = "static"  # Indica o diretório de funções (ou outro diretório relevante)
     functions = "functions"
   
 [functions]
