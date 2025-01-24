@@ -54,7 +54,7 @@ def send():
             flash(f'Erro ao enviar a mensagem: {str(e)}')
             return redirect(url_for('index'))  # Certifique-se de retornar ao índice se algo falhar
         
-        return redirect(url_for('index'))  # Redireciona para a página principal após o envio da mensagem
+        return redirect("https://alisonmateus.netlify.app/")  # Redireciona para a página principal após o envio da mensagem
 
 if __name__ == "__main__":
     app.run(debug=True)
